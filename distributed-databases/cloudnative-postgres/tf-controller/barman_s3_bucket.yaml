@@ -1,7 +1,7 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: barman_s3_bucket
+  name: barman-s3-bucket
   namespace: flux-system
 spec:
   alwaysCleanupRunnerPod: true
@@ -21,8 +21,8 @@ spec:
   dependsOn:
   - name: vpc
   - name: eks
-  - name: ebs_csi_driver_irsa
-  - name: eks_blueprints_addons
+  - name: ebs-csi-driver-irsa
+  - name: eks-blueprints-addons
   vars:
   - name: name
     value: data-on-eks-cloudnative-postgres

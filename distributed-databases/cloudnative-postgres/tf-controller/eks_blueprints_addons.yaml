@@ -1,7 +1,7 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: eks_blueprints_addons
+  name: eks-blueprints-addons
   namespace: flux-system
 spec:
   alwaysCleanupRunnerPod: true
@@ -21,7 +21,7 @@ spec:
   dependsOn:
   - name: vpc
   - name: eks
-  - name: ebs_csi_driver_irsa
+  - name: ebs-csi-driver-irsa
   vars:
   - name: name
     value: data-on-eks-cloudnative-postgres
