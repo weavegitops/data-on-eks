@@ -1,7 +1,7 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: cloudnative_postgresql
+  name: cloudnative-postgresql
   namespace: flux-system
 spec:
   alwaysCleanupRunnerPod: true
