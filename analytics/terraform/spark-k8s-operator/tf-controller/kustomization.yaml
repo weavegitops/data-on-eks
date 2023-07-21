@@ -4,4 +4,5 @@ resources:
 - eks.yaml
 - eks-blueprints-addons.yaml
 - kubernetes-data-addons.yaml
+- spark-k8s-operator.yaml
 - vpc.yaml
