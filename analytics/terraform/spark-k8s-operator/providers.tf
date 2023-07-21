@@ -1,5 +1,7 @@
 provider "aws" {
   region = local.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 # ECR always authenticates with `us-east-1` region
@@ -7,6 +9,8 @@ provider "aws" {
 provider "aws" {
   alias  = "ecr"
   region = "us-east-1"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 provider "kubernetes" {

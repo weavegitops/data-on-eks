@@ -71,3 +71,13 @@ variable "enable_yunikorn" {
   description = "Enable Apache YuniKorn Scheduler"
   type        = bool
 }
+
+variable "aws_access_key" {
+  description = "The AWS Access Key for authentication"
+  type        = string
+}
+
+variable "aws_secret_key" {
+  description = "The AWS Secret Key for authentication"
+  type        = string
+}
