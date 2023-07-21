@@ -6,6 +6,7 @@ module "ebs_csi_driver_irsa" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
   version = "~> 5.20"
 
+  create_role      = true
   role_name_prefix = "${module.eks.cluster_name}-ebs-csi-driver-"
 
   attach_ebs_csi_policy = true
