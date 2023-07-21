@@ -20,7 +20,7 @@ spec:
   - module.vpc
   vars:
   - name: name
-    value: data-on-eks-cloudnative-postgres
+    value: data-on-eks-cn-postgres
   - name: region
     value: us-west-2
   - name: eks_cluster_version
