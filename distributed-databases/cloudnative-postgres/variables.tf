@@ -21,3 +21,13 @@ variable "vpc_cidr" {
   default     = "10.1.0.0/16"
   type        = string
 }
+
+variable "aws_access_key" {
+  description = "The AWS Access Key for authentication"
+  type        = string
+}
+
+variable "aws_secret_key" {
+  description = "The AWS Secret Key for authentication"
+  type        = string
+}
