@@ -2,7 +2,7 @@ locals {
   name   = var.name
   region = var.region
 
-  azs = slice(data.aws_availability_zones.available.names, 0, length(data.aws_availability_zones.available.names) - 1)
+  azs = slice(data.aws_availability_zones.available.names, 0, length(data.aws_availability_zones.available.names))
 
   tags = {
     Blueprint  = local.name
