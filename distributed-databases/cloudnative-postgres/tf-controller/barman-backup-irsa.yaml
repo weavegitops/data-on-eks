@@ -1,9 +1,11 @@
-apiVersion: infra.contrib.fluxcd.io/v1alpha1
+apiVersion: infra.contrib.fluxcd.io/v1alpha2
 kind: Terraform
 metadata:
   name: barman-backup-irsa
   namespace: flux-system
 spec:
+  backendConfig:
+    secretSuffix: data-on-eks-cn-pgsql
   alwaysCleanupRunnerPod: true
   approvePlan: auto
   destroy: false
@@ -16,7 +18,7 @@ spec:
     name: data-on-eks
     namespace: flux-system
   storeReadablePlan: human
-  targets: 
+  targets:
   - module.barman_backup_irsa
   dependsOn:
   - name: vpc
@@ -29,10 +31,14 @@ spec:
     value: data-on-eks-cn-postgres
   - name: region
     value: us-west-2
+  - name: kms_key_administrators
+    value: []
   - name: eks_cluster_version
     value: "1.25"
   - name: vpc_cidr
     value: "10.1.0.0/16"
+  - name: core_node_group_desired_size
+    value: 3
   varsFrom:
   - kind: Secret
     name: tf-controller-auth

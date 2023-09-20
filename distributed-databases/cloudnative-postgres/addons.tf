@@ -2,7 +2,7 @@ module "eks_blueprints_addons" {
   source = "github.com/aws-ia/terraform-aws-eks-blueprints-addons?ref=08650f"
 
   cluster_name      = module.eks.cluster_name
-  cluster_endpoint  = module.eks.cluster_endpoint
+  cluster_endpoint  = local.cluster_host
   cluster_version   = module.eks.cluster_version
   oidc_provider     = module.eks.oidc_provider
   oidc_provider_arn = module.eks.oidc_provider_arn

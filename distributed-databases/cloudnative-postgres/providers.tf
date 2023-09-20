@@ -1,6 +1,6 @@
 locals {
-  cluster_host = try(module.eks.cluster_endpoint, data.aws_eks_cluster.eks.endpoint, null)
-  cluster_cert = try(module.eks.cluster_certificate_authority_data, data.aws_eks_cluster.eks.certificate_authority[0].data, null)
+  cluster_host = try(data.aws_eks_cluster.eks.endpoint, module.eks.cluster_endpoint, null)
+  cluster_cert = try(data.aws_eks_cluster.eks.certificate_authority[0].data, module.eks.cluster_certificate_authority_data, null)
 }
 
 data "aws_eks_cluster" "eks" {

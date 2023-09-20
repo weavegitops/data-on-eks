@@ -6,10 +6,19 @@ output "configure_kubectl" {
 output "barman_backup_irsa" {
   description = "ARN for Backup IAM ROLE"
   value       = module.barman_backup_irsa.irsa_iam_role_arn
-
 }
 
 output "barman_s3_bucket" {
   description = "Backup bucket"
   value       = module.barman_s3_bucket.s3_bucket_id
+}
+
+output "eks_host_endpoint" {
+  description = "EKS Host Endpoint"
+  value       = module.eks.cluster_endpoint
+}
+
+output "eks_cluster_cert_data" {
+  description = "EKS CA data"
+  value       = module.eks.cluster_certificate_authority_data
 }

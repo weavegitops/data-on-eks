@@ -27,7 +27,10 @@ module "barman_s3_bucket" {
   version = "~> 3.0"
 
   bucket = "${random_string.random.result}-cnpg-barman-bucket"
-  acl    = "private"
+
+  #acl    = "private"
+  ## Disabling the ACL see docs here:
+  ## https://go.aws/3EM8hBr
 
   # For example only - please evaluate for your environment
   force_destroy = true
