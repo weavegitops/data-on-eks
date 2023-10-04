@@ -30,6 +30,8 @@ spec:
     value: us-west-2
   - name: kms_key_administrators
     value: []
+  - name: admin_role_arns
+    value: []
   - name: eks_cluster_version
     value: "1.25"
   - name: vpc_cidr
