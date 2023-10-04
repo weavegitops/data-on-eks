@@ -40,6 +40,12 @@ variable "aws_secret_key" {
   default     = ""
 }
 
+variable "admin_role_arns" {
+  description = "A list of IAM ARNs for administrators"
+  type        = list(string)
+  default     = []
+}
+
 variable "kms_key_administrators" {
   description = "A list of IAM ARNs for [key administrators](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-administrators). If no value is provided, the current caller identity is used to ensure at least one key admin is available"
   type        = list(string)

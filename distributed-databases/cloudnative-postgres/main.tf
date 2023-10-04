@@ -15,16 +15,7 @@ module "eks" {
 
   kms_key_administrators = var.kms_key_administrators
 
-  aws_auth_roles = [
-    # We need to add the Administrator Role
-    {
-      rolearn = "arn:aws:iam::482649550366:role/AdministratorAccess"
-      username = "Administrator"
-      groups = [
-        "system:masters",
-      ]
-    }
-  ]
+  aws_auth_roles = local.admin_roles
 
   #---------------------------------------
   # Note: This can further restricted to specific required for each Add-on and your application
