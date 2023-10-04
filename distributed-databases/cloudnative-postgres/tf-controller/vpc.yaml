@@ -33,7 +33,7 @@ spec:
     value: "1.25"
   - name: vpc_cidr
     value: "10.1.0.0/16"
-  - name: core_node_group_desired_size
+  - name: node_group_desired_size
     value: 3
   varsFrom:
   - kind: Secret

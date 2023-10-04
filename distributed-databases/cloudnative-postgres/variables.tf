@@ -16,7 +16,7 @@ variable "eks_cluster_version" {
   type        = string
 }
 
-variable "core_node_group_desired_size" {
+variable "node_group_desired_size" {
   description = "Desired number of nodes in the EKS managed node group"
   default     = 3
   type        = number
