@@ -1,0 +1,40 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  labels:
+    templates.weave.works/template-name: create-an-ecr-repository
+    templates.weave.works/template-namespace: default
+  name: testing-ecr-repository
+  namespace: flux-system
+  annotations:
+    templates.weave.works/create-request: "{\"repository_url\":\"https://github.com/weavegitops/data-on-eks\",\"head_branch\":\"wge-create-branch-rpiwg\",\"base_branch\":\"optional-aws-creds\",\"title\":\"Create resource testing\",\"description\":\"This PR creates a create-an-ecr-repository instance\",\"template_name\":\"create-an-ecr-repository\",\"parameter_values\":{\"APPROVE_PLAN\":\"auto\",\"AWS_REGION\":\"eu-west-1\",\"ECR_REPOSITORY_NAME\":\"testing\",\"IMMUTABLE_TAGS\":\"true\",\"STATE_NAME\":\"wge-workshops\"},\"commit_message\":\"Create create-an-ecr-repository instance\",\"credentials\":{},\"template_namespace\":\"default\",\"template_kind\":\"GitOpsTemplate\"}"
+    templates.weave.works/created-files: "{\"files\":[\"clusters/management/terraform/ecr-repo-testing.yaml\"]}"
+spec:
+  approvePlan: auto
+  backendConfig:
+    customConfiguration: |
+      backend "s3" {
+        key            = "trial/wge/ecr/wge-workshops/ecr-repo-testing-terraform.tfstate"
+        bucket         = "wge-workshops-tf-state"
+        region         = "eu-west-1"
+        encrypt        = true
+        dynamodb_table = "wge-workshops-tf-lock"
+      }
+  destroyResourcesOnDeletion: true
+  disableDriftDetection: false
+  enableInventory: true
+  interval: 20m
+  path: ./infra/terraform/ecr-repo/
+  serviceAccountName: tf-runner
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  storeReadablePlan: human
+  vars:
+  - name: repo_name
+    value: testing
+  - name: immutable_image_tags
+    value: true
+  - name: aws_region
+    value: eu-west-1
+  workspace: default
