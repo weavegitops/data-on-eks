@@ -1,3 +1,5 @@
+# This repo is archived
+
 [![plan-examples](https://github.com/awslabs/data-on-eks/actions/workflows/plan-examples.yml/badge.svg?branch=main)](https://github.com/awslabs/data-on-eks/actions/workflows/plan-examples.yml)
 # [Data on Amazon EKS (DoEKS)](https://awslabs.github.io/data-on-eks/)
 ![Data on EKS](website/static/img/doeks-logo-green.png)
